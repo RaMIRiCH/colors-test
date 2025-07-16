@@ -1,0 +1,25 @@
+$primary: white;
+$secondary: #7BB899;
+$background: #1F2020;
+$primaryLight: #f2f2f2;
+$hover: $secondary;
+$error: #f85c47;
+
+$font: 'Inter 18pt', -apple-system, BlinkMacSystemFont, sans-serif;
+$titleFont: 'Inter 18pt', -apple-system, BlinkMacSystemFont, sans-serif;
+$fontMono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+$baseFontSize: 16px;
+$baseFontColor: $background;
+
+$mainFontSize: 1.5em;
+$titleFontSize: 2.5em;
+$headerElementsSize: 4.5rem;
+$headerHeight: 6.5rem;
+
+$maxPageWidth: 1920px;
+$defaultPadding: 2.4rem;
+
+$defaultBorderRadius: 3rem;
+$defaultBorder: 1px solid rgba(0, 0, 0, 0.1);
+$hoverBorder: 2px solid white;
+$overlayBackground: rgba(0, 0, 0, 0.8);

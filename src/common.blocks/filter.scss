@@ -1,0 +1,63 @@
+@use 'variables' as *;
+
+$b: '.expanding__filter';
+
+#{$b} {
+	position: relative;
+	display: inline-block;
+	font-family: Arial, sans-serif;
+	cursor: pointer;
+	text-align: right;
+	z-index: 10;
+
+	&-closed {
+		padding: 8px 67px 8px 15px;
+		font-size: 14px;
+		position: relative;
+		white-space: nowrap;
+		display: inline-block;
+	}
+
+	&-closed:after {
+		content: '▼';
+		position: absolute;
+		right: 52px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 10px;
+		color: $background;
+	}
+
+	&-options {
+		display: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+		background: $primary;
+		min-width: 100%;
+		z-index: 100;
+		text-align: left;
+	}
+
+	&-option {
+		padding: 8px 15px;
+		font-size: 14px;
+		white-space: nowrap;
+	}
+
+	&-option:hover {
+		background-color: $secondary;
+	}
+
+	&-option.active {
+		background-color: $secondary;
+	}
+}
+
+.expanding__filter.expanded .expanding__filter-сlosed {
+	display: none;
+}
+
+.expanding__filter.expanded .expanding__filter-options {
+	display: block;
+}

@@ -1,0 +1,9 @@
+@use "variables" as *;
+
+$b: '.button';
+
+#{$b} {
+  background-color: transparent;
+	border: none;
+	cursor: pointer;
+}

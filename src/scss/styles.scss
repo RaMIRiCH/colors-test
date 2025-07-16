@@ -1,0 +1,16 @@
+@use "../common.blocks/button";
+
+@use "../common.blocks/page";
+@use "../common.blocks/header";
+
+@use "../common.blocks/banner";
+@use "../common.blocks/products";
+@use "../common.blocks/filter";
+@use "../common.blocks/card";
+@use "../common.blocks/basket";
+@use "../common.blocks/basket-item";
+@use "../common.blocks/footer";
+
+
+@use "variables" as *;
+@use "mixins";

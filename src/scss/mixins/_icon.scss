@@ -1,0 +1,10 @@
+@use "variables" as *;
+@use "interactive" as mixins;
+
+@mixin icon($size, $name) {
+    display: inline-block;
+    width: $size;
+    height: $size;
+    font-size: $size;
+    padding: 0;
+}
