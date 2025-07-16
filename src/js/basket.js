@@ -114,10 +114,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.target.closest('.product__card-add-to-basket')) {
       const productCard = e.target.closest('.product__card');
 
+      const imgElement = productCard.querySelector('.product__image');
+      let image = '';
+
+      if (imgElement) {
+        const src = imgElement.getAttribute('src');
+        if (src && src.trim() !== '') {
+          image = src.replace(/^\/?colors-test\/?images\//, '');
+        }
+      }
+
       const product = {
         title: productCard.querySelector('.product__card-title').textContent,
         price: parseInt(productCard.querySelector('.product__card-price').textContent.replace(' ₽', '')),
-        image: productCard.querySelector('.product__image')?.getAttribute('src')?.replace('/images/', '') || ''
+        image: image
       };
 
       addToCart(product);

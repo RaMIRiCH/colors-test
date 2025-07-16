@@ -10,13 +10,12 @@ export function renderProducts(productList, gallerySelector = '.products__magazi
 
   console.log('product.image:', product.image);
 
-  if (product.image) {
-    img.src = `/colors-test/images/${product.image}`;
-    img.alt = product.title;
-  } else {
-    console.warn(`Нет image у товара "${product.title}"`);
-    img.style.display = 'none';
-  }
+  if (product.image && product.image.trim() !== '') {
+  img.src = `/colors-test/images/${product.image}`;
+  img.alt = product.title;
+} else {
+  img.style.display = 'none';
+}
 
   clone.querySelector('.product__card-title').textContent = product.title;
   clone.querySelector('.product__card-price').textContent = `${product.price} ₽`;
