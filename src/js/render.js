@@ -11,7 +11,7 @@ export function renderProducts(productList, gallerySelector = '.products__magazi
   console.log('product.image:', product.image);
 
   if (product.image) {
-    img.src = `./images/${product.image}`;
+    img.src = `/colors-test/images/${product.image}`;
     img.alt = product.title;
   } else {
     console.warn(`Нет image у товара "${product.title}"`);
