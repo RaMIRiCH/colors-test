@@ -37,14 +37,14 @@ const config = {
       "process.env.API_ORIGIN": JSON.stringify(process.env.API_ORIGIN ?? "")
     }),
     new CopyPlugin({
-      patterns: [
-        {
-          from: "public/images",
-          to: "images",
-          noErrorOnMissing: true
-        }
-      ]
-    })
+  patterns: [
+    {
+      from: path.resolve(__dirname, "public"),
+      to: path.resolve(__dirname, "dist"),
+      noErrorOnMissing: true
+    }
+  ]
+})
   ],
   module: {
     rules: [
