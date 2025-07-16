@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const itemElement = clone.querySelector('.cart__item');
 
-  const img = clone.querySelector('.cart__item-image img');
-  img.src = `/${product.image}`;
+  const img = clone.querySelector('.cart__item-image');
+  img.src = `images/${product.image}`;
   img.alt = product.title;
 
   clone.querySelector('.cart__item-title').textContent = product.title;
@@ -113,12 +113,11 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('click', function (e) {
     if (e.target.closest('.product__card-add-to-basket')) {
       const productCard = e.target.closest('.product__card');
-      const productImage = productCard.querySelector('.product__image');
 
       const product = {
         title: productCard.querySelector('.product__card-title').textContent,
         price: parseInt(productCard.querySelector('.product__card-price').textContent.replace(' ₽', '')),
-        image: productImage ? productImage.getAttribute('src') : '/default.png'
+        image: productCard.querySelector('.product__card-image')?.getAttribute('src')?.replace('images/', '') || ''
       };
 
       addToCart(product);
