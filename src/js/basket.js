@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const itemElement = clone.querySelector('.cart__item');
 
   const img = clone.querySelector('.cart__item-image');
-  img.src = `images/${product.image}`;
+  img.src = `./images/${product.image}`;
   img.alt = product.title;
 
   clone.querySelector('.cart__item-title').textContent = product.title;
