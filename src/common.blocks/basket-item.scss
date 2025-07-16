@@ -4,6 +4,7 @@ $b: '.cart__item';
 
 #{$b} {
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	padding: 10px 0;
 	border-bottom: $defaultBorder;
@@ -15,7 +16,6 @@ $b: '.cart__item';
 	&-image {
 		width: 96px;
 		aspect-ratio: 1/1;
-		margin-right: 8px;
 
 		@media (max-width: 768px) {
 			display: none;
@@ -30,7 +30,6 @@ $b: '.cart__item';
 
 	&-title {
 		width: 165px;
-		margin-right: 62px;
 		font-size: 16px;
 		font-style: normal;
 		font-weight: 300;
@@ -58,14 +57,16 @@ $b: '.cart__item';
 		background: $primaryLight;
 	}
 
-	&-quantity-controls {
-		display: flex;
-		gap: 10px;
-		margin-right: 37px;
+	&-quantity {
+		width: 20px;
 
-		@media (max-width: 768px) {
-			gap: 20px;
-			margin-right: 10px;
+		&-controls {
+			display: flex;
+			gap: 10px;
+
+			@media (max-width: 768px) {
+				gap: 20px;
+			}
 		}
 	}
 

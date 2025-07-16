@@ -8,14 +8,15 @@ $b: '.expanding__filter';
 	font-family: Arial, sans-serif;
 	cursor: pointer;
 	text-align: right;
-	z-index: 10;
 
 	&-closed {
 		padding: 8px 67px 8px 15px;
-		font-size: 14px;
+		font-size: 12px;
+		letter-spacing: 0.72px;
 		position: relative;
 		white-space: nowrap;
 		display: inline-block;
+		text-transform: uppercase;
 
 		@media (max-width: 768px) {
 			padding: 8px 24px 8px 15px;
@@ -40,16 +41,21 @@ $b: '.expanding__filter';
 		display: none;
 		position: absolute;
 		top: 0;
-		right: 0;
+		right: 55px;
 		background: $primary;
 		min-width: 100%;
-		z-index: 100;
+		z-index: 16;
 		text-align: left;
+		text-transform: uppercase;
 	}
 
 	&-option {
-		padding: 8px 15px;
-		font-size: 14px;
+		width: 256px;
+		padding-top: 16px;
+		padding-bottom: 16px;
+		font-weight: 500;
+		padding-left: 24px;
+		font-size: 12px;
 		white-space: nowrap;
 	}
 

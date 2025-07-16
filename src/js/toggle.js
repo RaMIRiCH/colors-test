@@ -1,69 +1,41 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const filter = document.querySelector('.expanding__filter');
-  const closedState = filter.querySelector('.expanding__filter-closed');
-  const options = filter.querySelectorAll('.expanding__filter-option');
+export function setupMobileToggle() {
+  const filterButton = document.querySelector('.products__magazine-mobile');
+  const filter = document.querySelector('.products__filter');
   const overlay = document.querySelector('.overlay');
-  
-  let scrollPosition = 0;
+  const cartSidebar = document.querySelector('.basket__sidebar');
 
-  function toggleScroll(lock) {
-    if (lock) {
-      scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollPosition}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
-      window.scrollTo(0, scrollPosition);
-    }
+  function toggleBodyScroll(lock) {
+    document.body.style.overflow = lock ? 'hidden' : '';
+    document.body.style.position = lock ? 'fixed' : '';
+    document.body.style.width = lock ? '100%' : '';
   }
 
-  closedState.addEventListener('click', function (e) {
-    e.stopPropagation();
-    filter.classList.add('expanded');
+  filterButton.addEventListener('click', () => {
+    if (cartSidebar?.classList.contains('active')) {
+      cartSidebar.classList.remove('active');
+    }
+
+    filter.classList.add('active');
     overlay.style.display = 'block';
-    toggleScroll(true);
+    setTimeout(() => overlay.style.opacity = '1', 10);
+    toggleBodyScroll(true);
   });
 
-  options.forEach(option => {
-    option.addEventListener('click', function (e) {
-      e.stopPropagation();
-
-      closedState.textContent = this.textContent;
-
-      options.forEach(opt => opt.classList.remove('active'));
-      this.classList.add('active');
-
-      filter.classList.remove('expanded');
-      overlay.style.display = 'none';
-      toggleScroll(false);
-
-      const sortType = this.dataset.sort;
-      sortProducts(sortType);
-    });
-  });
-
-  overlay.addEventListener('click', function () {
-    if (filter.classList.contains('expanded')) {
-      filter.classList.remove('expanded');
-      overlay.style.display = 'none';
-      toggleScroll(false);
+  overlay.addEventListener('click', () => {
+    if (filter.classList.contains('active')) {
+      filter.classList.remove('active');
+      overlay.style.opacity = '0';
+      setTimeout(() => overlay.style.display = 'none', 300);
+      toggleBodyScroll(false);
     }
   });
 
-  document.addEventListener('click', function (e) {
-    if (!filter.contains(e.target) && filter.classList.contains('expanded')) {
-      filter.classList.remove('expanded');
-      overlay.style.display = 'none';
-      toggleScroll(false);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && filter.classList.contains('active')) {
+      filter.classList.remove('active');
+      overlay.style.opacity = '0';
+      setTimeout(() => overlay.style.display = 'none', 300);
+      toggleBodyScroll(false);
     }
   });
-
-  function sortProducts(type) {
-    console.log('Сортировка по:', type);
-  }
-});
+}
