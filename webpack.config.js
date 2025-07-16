@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { DefinePlugin } = require("webpack");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 require("dotenv").config({
   path: path.join(process.cwd(), process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : ".env")
@@ -16,9 +17,9 @@ const config = {
   entry: "./src/index.js",
   devtool: "source-map",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
-    clean: true,
+    publicPath: './',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true
   },
   devServer: {
     open: true,
@@ -35,6 +36,15 @@ const config = {
       "process.env.DEVELOPMENT": JSON.stringify(!isProduction),
       "process.env.API_ORIGIN": JSON.stringify(process.env.API_ORIGIN ?? "")
     }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "public/images",
+          to: "images",
+          noErrorOnMissing: true
+        }
+      ]
+    })
   ],
   module: {
     rules: [
@@ -66,9 +76,19 @@ const config = {
         use: [stylesHandler, "css-loader", "postcss-loader"],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: "asset",
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext][query]'
+        }
       },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext][query]'
+        }
+      }
     ],
   },
   resolve: {
