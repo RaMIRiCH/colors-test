@@ -17,7 +17,7 @@ const config = {
   entry: "./src/index.js",
   devtool: "source-map",
   output: {
-    publicPath: '/',
+    publicPath: './',
     path: path.resolve(__dirname, 'dist'),
     clean: true
   },

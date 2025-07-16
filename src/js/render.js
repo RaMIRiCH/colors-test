@@ -6,7 +6,7 @@ export function renderProducts(productList, gallerySelector = '.products__magazi
 
   productList.forEach(product => {
     const clone = document.importNode(template, true);
-    const img = clone.querySelector('.product__card-image img');
+    const img = clone.querySelector('.product__card-image');
     img.src = `images/${product.image}`;
     img.alt = product.title;
     img.onerror = () => img.style.display = 'none';
