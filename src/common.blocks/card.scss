@@ -8,15 +8,15 @@ $b: '.product__card';
 	height: 378px;
 	overflow: visible;
 
+	@media (max-width: 768px) {
+		max-width: 156px;
+		height: 270px;
+	}
+
 	&:hover .product__card-add-to-basket {
 		opacity: 1;
-		width: 80px;
-		height: 32px;
-		background-color: $secondary;
-		border: none;
-		border-radius: 8px;
-		cursor: pointer;
-		transition: background-color 0.3s;
+
+
 	}
 
 	&-image {
@@ -25,6 +25,10 @@ $b: '.product__card';
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
+		@media (max-width: 768px) {
+			width: 156px;
+		}
 	}
 
 	&-image img {
@@ -58,5 +62,17 @@ $b: '.product__card';
 
 	&-add-to-basket {
 		opacity: 0;
+		width: 80px;
+		height: 32px;
+		background-color: $secondary;
+		border: none;
+		border-radius: 8px;
+		cursor: pointer;
+		transition: background-color 0.3s;
+
+		@media (max-width: 768px) {
+			opacity: 1;
+			background-color: $primaryLight;
+		}
 	}
 }

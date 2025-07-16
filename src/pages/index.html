@@ -17,6 +17,14 @@
 	<div class="page__wrapper">
 		<header class="header">
 			<div class="header__container">
+				<button class="button burger__mobile-button">
+					<xmls version="1.0" encoding="utf-8"?>
+					<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M4 18L20 18" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+					<path d="M4 12L20 12" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+					<path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+					</svg>
+				</button>
 				<a class="header__logo" href="/">
 					<img class="header__logo-image" src="<%=require('../images/logo.svg')%>" alt="Colors Logo" />
 				</a>
@@ -104,6 +112,14 @@
 		</header>
 		<main>
 			<section class="banner section">
+				<div class="banner__navigation">
+					<ul class="banner__navigation-list">
+						<li class="banner__navigation-item">главная</li>
+						<li class="banner__navigation-item">продукты</li>
+						<li class="banner__navigation-item">краски</li>
+					</ul>
+				</div>
+				<h2 class="banner__box-title-mobile">Краски</h2>
 				<div class="banner__box">
 					<div class="banner__swiper-box">
 						<div class="banner__swiper swiper">
@@ -200,6 +216,7 @@
 				</div>
 				<div class="products__magazine">
 					<div class="products__magazine-header">
+						<button class="button products__magazine-mobile">фильтры</button>
 						<span class="products__magazine-header-counter">0 товаров</span>
 						<div class="products__magazine-header-filter">
 							<div class="expanding__filter">
@@ -219,7 +236,7 @@
 				</div>
 			</section>
 		</main>
-		<footer class="footer"></footer>
+		<footer class="footer">@RaMIRiCH</footer>
 	</div>
 
 	<template id="cart__item-template">
@@ -259,6 +276,39 @@
 	</template>
 
 	<div class="overlay"></div>
+
+	<div class="burger__sidebar">
+		<div class="burger__header">
+				<h2>Меню</h2>
+				<button class="burger__close">
+					<svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M31 56.8333C45.2674 56.8333 56.8334 45.2673 56.8334 31C56.8334 16.7326 45.2674 5.16663 31 5.16663C16.7327 5.16663 5.16669 16.7326 5.16669 31C5.16669 45.2673 16.7327 56.8333 31 56.8333Z" opacity="0.2" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M38.75 23.25L23.25 38.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M23.25 23.25L38.75 38.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</button>
+		</div>
+		<div class="burger__body">
+			<ul class="burger__body-list">
+				<li class="burger__body-list-item">
+					<a href="#0">Продукты</a>
+				</li>
+				<li class="burger__body-list-item">
+					<a href="#0">Цвета</a>
+				</li>
+				<li class="burger__body-list-item">
+					<a href="#0">Вдохновение</a>
+				</li>
+				<li class="burger__body-list-item">
+					<a href="#0">Советы</a>
+				</li>
+				<li class="burger__body-list-item">
+					<a href="#0">Найти магазины</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
 	<div class="basket__sidebar">
 		<div class="basket__header">
 				<h2>Корзина</h2>

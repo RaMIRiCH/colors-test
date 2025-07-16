@@ -15,6 +15,12 @@ $b: '.basket';
 		transition: right 0.3s ease;
 		display: flex;
 		flex-direction: column;
+
+		@media (max-width: 768px) {
+			right: -110%;
+			width: 80%;
+			height: calc(100% - 40px);
+		}
 	}
 
 	&__sidebar.active {
@@ -26,6 +32,10 @@ $b: '.basket';
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 94px;
+
+		@media (max-width: 768px) {
+			margin-bottom: 50px;
+		}
 	}
 
 	&__close {
@@ -60,6 +70,10 @@ $b: '.basket';
 		justify-content: space-between;
 		padding: 20px;
 		border-top: $defaultBorder;
+
+		@media (max-width: 768px) {
+			padding: 20px 0;
+		}
 	}
 
 	&__clear {
@@ -109,6 +123,10 @@ $b: '.basket';
 		background-color: $secondary;
 		border: none;
 		cursor: pointer;
+
+		@media (max-width: 768px) {
+			width: 150px;
+		}
 
 		&:hover {
 			opacity: 0.5;

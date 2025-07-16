@@ -12,20 +12,33 @@ $b: '.header';
 	height: $headerHeight;
 	background-color: $primary;
 
+	@media (max-width: 768px) {
+		height: 4rem;
+	}
+
 	&__container {
 		@include mixins.flex(row);
 		height: 100%;
 		padding: 0 64px;
 		align-items: center;
 		justify-content: space-between;
+
+		@media (max-width: 768px) {
+			padding: 0;
+		}
 	}
 
 	&__logo {
 		height: $headerElementsSize;
-    align-content: center;
+    	align-content: center;
+
+		@media (max-width: 768px) {
+			width: 89px;
+		}
 
 		&-image {
 			display: block;
+			width: 100%;
 		}
 	}
 
@@ -35,6 +48,11 @@ $b: '.header';
 		padding-inline-start: 0;
 		margin-block-start: 0;
 		margin-block-end: 0;
+
+		@media (max-width: 768px) {
+			display: none;
+			visibility: hidden;
+		}
 
 		&-item {
 			list-style: none;
@@ -50,6 +68,11 @@ $b: '.header';
 	&__phone {
 		display: flex;
 		flex-direction: column;
+
+		@media (max-width: 768px) {
+			display: none;
+			visibility: hidden;
+		}
 
 		&-order {
 			color: $background;
@@ -68,6 +91,13 @@ $b: '.header';
 
 		&-item {
 			list-style: none;
+		}
+
+		&-item:not(:last-of-type) {
+			@media (max-width: 768px) {
+				display: none;
+				visibility: hidden;
+			}
 		}
 	}
 

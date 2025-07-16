@@ -1,0 +1,74 @@
+@use 'variables' as *;
+
+$b: '.burger';
+
+#{$b} {
+    &__mobile-button {
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        display: none;
+
+        @media (max-width: 768px) {
+			display: block;
+		}
+    }
+
+    &__sidebar {
+		position: fixed;
+		top: 0;
+		padding: 40px;
+		background-color: $primary;
+		z-index: 1000;
+		transition: right 0.3s ease;
+		display: flex;
+		flex-direction: column;
+        display: none;
+
+		@media (max-width: 768px) {
+			right: 110%;
+			width: 80%;
+			height: calc(100% - 40px);
+            display: block;
+		}
+	}
+
+    &__sidebar.active {
+		right: 0;
+	}
+
+    &__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 50px;
+	}
+
+    &__close {
+		background: none;
+		border: none;
+		font-size: 24px;
+		cursor: pointer;
+	}
+
+    &__body {
+		flex: 1;
+		overflow-y: auto;
+
+        &-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            &-item {
+                font-size: 30px;
+                border-bottom: $defaultBorder;
+            }
+
+            &-item:hover {
+                background-color: $secondary;
+            }
+        }
+	}
+}
+
