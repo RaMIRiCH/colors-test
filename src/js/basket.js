@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.target.closest('.product__card-add-to-basket')) {
       const productCard = e.target.closest('.product__card');
 
-      const imgElement = productCard.querySelector('.product__image');
+      const imgElement = productCard.querySelector('.product__card-image img');
       let image = '';
 
       if (imgElement) {

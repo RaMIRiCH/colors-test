@@ -17,10 +17,10 @@ const config = {
   entry: "./src/index.js",
   devtool: "source-map",
   output: {
-    publicPath: './',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true
-  },
+  path: path.resolve(__dirname, 'dist'),
+  filename: '[name].bundle.js',
+  publicPath: '/colors-test/',
+},
   devServer: {
     open: true,
     host: "localhost",
