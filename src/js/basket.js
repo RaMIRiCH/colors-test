@@ -111,26 +111,27 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   document.addEventListener('click', function (e) {
-    if (e.target.closest('.product__card-add-to-basket')) {
-      const productCard = e.target.closest('.product__card');
+  if (e.target.closest('.product__card-add-to-basket')) {
+    const productCard = e.target.closest('.product__card');
 
-      const imgElement = productCard.querySelector('.product__image');
-      let image = '';
+    const imgElement = productCard.querySelector('.product__image');
+    let image = '';
 
-      if (imgElement) {
-        const src = imgElement.getAttribute('src');
-        if (src && src.trim() !== '') {
-          image = src.replace(/^\/?colors-test\/?images\//, '');
-        }
+    if (imgElement) {
+      const src = imgElement.getAttribute('src');
+      if (src && src.trim() !== '') {
+        image = src.replace(/^\/?colors-test\/?images\//, '');
       }
-
-      const product = {
-        title: productCard.querySelector('.product__card-title').textContent,
-        price: parseInt(productCard.querySelector('.product__card-price').textContent.replace(' ₽', '')),
-        image: image
-      };
-
-      addToCart(product);
     }
-  });
+
+    const product = {
+      title: productCard.querySelector('.product__card-title').textContent,
+      price: parseInt(productCard.querySelector('.product__card-price').textContent.replace(' ₽', '')),
+      image: image
+    };
+
+    addToCart(product);
+  }
+});
+
 });
